@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" th:href="@{/css/style_navbar.css}">
+    <link rel="stylesheet" th:href="@{/css/style_Dashboard.css}">
+    <link rel="stylesheet" th:href="@{/css/details.css}">
+    <link rel="stylesheet" th:href="@{/css/logo_profile.css}">
+    <title>AutoGarage | Details auto services</title>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <input type="checkbox" name="" id="check">
+            
+            <div class="logo-container">
+                <a href="Dashboard.html"><h3 class="logo">Auto<span>Garage</span></h3></a>
+            </div>
+
+            <div class="nav-btn">
+                <div class="nav-links">
+                    <ul>
+                        <li class="nav-link" style="--i: .85s">
+                            <a href="#">Why AutoGarage?<img style="width: 20px; height: 20px;" th:src="@{/images/point-down.png}"></a>
+                            <div class="dropdown">
+                                <ul>
+                                    <li class="dropdown-link">
+                                        <a href="car">Car services</a>
+                                    </li>
+                                    <li class="dropdown-link">
+                                        <a href="car">Prices</a>
+                                    </li>
+                                    <li class="dropdown-link">
+                                        <a href="car">Real photes</a>
+                                    </li>
+                                    <div class="arrow"></div>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="nav-link" style="--i: 1.1s">
+                            <a href="#">Tools<img style="width: 20px; height: 20px;" th:src="@{/images/point-down.png}"></a>
+                            <div class="dropdown">
+                                <ul>
+                                    <li class="dropdown-link">
+                                        <a href="addcar">Add a car</a>
+                                    </li>
+                                    <li class="dropdown-link">
+                                        <a href="addAutoService">Add a auto service</a>
+                                    </li>
+                                    <li class="dropdown-link">
+                                        <a href="addAppointment">Make an appointment</a>
+                                    </li>
+                                    <div class="arrow"></div>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="nav-link" style="--i: 1.35s">
+                            <a href="#">About</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="log-sign" style="--i: 1.8s">
+                    <a href="#"><img style="width: 25px; height: 25px;" th:src="@{/images/user_black.png}"></a>
+                    <div class="dropdown-profile">
+                        <ul>
+                            <li style="border-bottom:2px solid #efefef">
+                                <a href="/">
+                                    <div>
+                                        <img th:src="@{/images/dashboard.png}"/>
+                                    </div>
+                                    <div>
+                                        <p>Dashboard</p>
+                                    </div>
+                                </a>
+                            </li>
+                            <li><a href="editProfile">
+                                    <div>
+                                        <img th:src="@{/images/edit_profile_blue.png}"/>
+                                    </div>
+                                    <div>
+                                        <p>Edit</p>
+                                    </div>
+                                </a>
+                             </li>
+                            <li sec:authorize="isAuthenticated()"th:action="@{/logout}" method="post">
+                                <a href="intro">
+                                    <div>
+                                        <img th:src="@{/images/logout.png}"/>
+                                    </div>
+                                    <div>
+                                        <p>Log out</p>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hamburger-menu-container">
+                <div class="hamburger-menu">
+                    <div></div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="links">
+            <p><a href="Home_signup.html">Home</a></p>
+            <img th:src="@{images/right-arrow-details.png}"/>
+            <p><a href="AutoServices.html">Auto services</a></p>
+            <img th:src="@{images/right-arrow-details.png}"/>
+            <p>AVS Auto</p>
+        </div>
+        <div class="main">
+            <div class="card-profile">
+                <div>
+                    <img th:src="@{images/location.png}"/><p>Strada Lungă, nr 20, Brașov 500045</p>
+                </div>
+                <div>
+                    <img th:src="@{images/telephone.png}"/><p>0765455223</p>
+                </div>
+               
+            </div>
+            <div class="card-prices">
+                <details>
+                    <summary><p>Schimb ulei și filtre, fluide de răcire 300 lei</p>
+                    </summary>
+                    <div class="details-content">
+                        <a href="AddAppointment.html"><button>Make an appointment</button></a>
+                    </div>
+                </details>
+                <details>
+                    <summary><p>Schimb ulei și filtre, fluide de răcire 300 lei</p>
+                    </summary>
+                    <div class="details-content">
+                        <a href="AddAppointment.html"><button>Make an appointment</button></a>
+                    </div>
+                </details>
+                <details>
+                    <summary><p>Schimb ulei și filtre, fluide de răcire 300 lei</p>
+                    </summary>
+                    <div class="details-content">
+                        <a href="AddAppointment.html"><button>Make an appointment</button></a>
+                    </div>
+                </details>
+            </div>
+            <div class="card-pictures">
+                
+            </div>
+        </div>
+        
+    </main>
+    <footer>
+    <div class="overflow">    
+        <div>
+            <h4 style="padding-top: 120px;" class="logo">Auto<span>Garage</span></h4>
+        </div>
+        <div>
+            <h4 style="padding-top: 200px;">Web development with Spring Boot, Endava</h4>
+        </div>
+    </div>
+</footer>
+</body>
+<script th:src="@{/js/logo-profile.js}"></script>
+</html>

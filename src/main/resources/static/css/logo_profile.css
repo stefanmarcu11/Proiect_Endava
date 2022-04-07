@@ -1,0 +1,38 @@
+.log-sign{
+    display: flex;
+    flex-direction: column;
+}
+.dropdown-profile{
+    background-color:rgb(163, 50, 5);
+    padding: 10px 0px;
+    margin-top: 48px;
+    position: absolute;
+    top:0px;
+    left:78%;
+}
+.dropdown-profile a{
+    text-decoration: none;
+    color: black;
+}
+.dropdown-profile li{
+    padding: 10px 20px;
+}
+.log-sign .dropdown-profile{
+    display: none;
+}
+.log-sign.active .dropdown-profile{
+    display: block;
+} 
+.dropdown-profile img{
+    width: 25px;
+    height: 25px;
+}
+.dropdown-profile ul li a{
+    display: flex;
+}
+.dropdown-profile ul li a img{
+    margin-right: 10px;
+}
+.dropdown-profile ul li a p{
+    padding-top: 5px;
+}

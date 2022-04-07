@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" th:href="@{/css/style_navbar.css}">
+    <link rel="stylesheet" th:href="@{/css/style_home.css}">
+    <title>AutoGarage | You start to manager your cars problems much easier</title>
+
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <input type="checkbox" name="" id="check">
+            
+            <div class="logo-container">
+                <a href="Dashboard.html"><h3 class="logo">Auto<span>Garage</span></h3></a>
+            </div>
+
+            <div class="nav-btn">
+                <div class="nav-links">
+                    <ul>
+                        <li class="nav-link" style="--i: .85s">
+                            <a href="#">Why Auto Garage?<img style="width: 20px; height: 20px;" th:src="@{/images/point-down.png}"/></a>
+                            <div class="dropdown">
+                                <ul>
+                                    <li class="dropdown-link">
+                                        <a href="#">Car services</a>
+                                    </li>
+                                    <li class="dropdown-link">
+                                        <a href="#">Prices</a>
+                                    </li>
+                                    <li class="dropdown-link">
+                                        <a href="#">Real photes</a>
+                                    </li>
+                                    <div class="arrow"></div>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="nav-link" style="--i: 1.1s">
+                            <a href="#">Tools<img style="width: 20px; height: 20px;" th:src="@{/images/point-down.png}"/></a>
+                            <div class="dropdown">
+                                <ul>
+                                    <li class="dropdown-link">
+                                        <a href="#">Add a car</a>
+                                    </li>
+                                    <li class="dropdown-link">
+                                        <a href="#">Add a garage</a>
+                                    </li>
+                                    <li class="dropdown-link">
+                                        <a href="#">Make an appointment</a>
+                                    </li>
+                                    <div class="arrow"></div>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="nav-link" style="--i: 1.35s">
+                            <a href="#">About</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="log-sign" style="--i: 1.8s">
+					<a href="login" class="btn transparent">Log in</a>
+                </div>
+            </div>
+
+            <div class="hamburger-menu-container">
+                <div class="hamburger-menu">
+                    <div></div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <section>
+            <img th:src="@{/images/image-home-v2.png}"/>
+            <div class="overlay">
+                <diV class="overlay-img">
+                    <h1>You start to manager<br>your cars problems much easier!</h1>
+                    <a href="login"><button><p>Join us</p></button></a>
+                </diV>
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>

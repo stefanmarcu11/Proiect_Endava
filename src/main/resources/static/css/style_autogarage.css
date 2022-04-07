@@ -1,0 +1,53 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing:border-box;
+}
+.navbar{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 8vh;
+    font-family: 'Roboto', sans-serif;
+    background-color:cornflowerblue;
+}
+.logo{
+    cursor:pointer;
+    margin-left: 10%;
+}
+.nav_links{
+    list-style: none;
+    display: inline-block; 
+    margin-right: 50%;
+}
+.nav_links li{
+    display: inline-block;
+    padding: 0px 20px;
+}
+button{
+    padding:9px 25px;
+    margin-right: 100px;
+    background-color:firebrick;
+    border:none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+    font-family: 'Roboto', sans-serif;
+
+}
+button:hover{
+    background-color:white;
+}
+button img{
+    width: 20px;
+    height: 20px;
+}
+
+.dropdown_why{
+    justify-content: center;
+    display:inline-block;
+
+}
+
+
+

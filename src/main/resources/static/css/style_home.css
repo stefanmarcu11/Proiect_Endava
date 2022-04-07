@@ -1,0 +1,24 @@
+section img{
+    width: 100%;
+    object-fit: cover;
+    height:95vh;
+}
+.overlay-img{
+    font-size: 30px;
+    padding:18% 0px 0px 50px;
+    text-align: left;
+}
+.overlay-img h1{
+    color:black;
+    padding-bottom: 20px;
+}
+.overlay-img button{
+    border-radius: 20px;
+    border-color: rgb(230, 57, 0);
+    background-color:rgb(230, 57, 0);
+    font-size: 25px;
+    padding:10px 20px;
+}
+.overlay-img p{
+    color:white;
+}

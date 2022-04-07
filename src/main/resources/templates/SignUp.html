@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+	<meta charset="UTF-8">
+	<title>AutoGarage | Sign up</title>
+	<link rel="stylesheet" th:href="@{/css/style_v2.css}">
+	<!--<script src="https://kit.fontawesome.com/b99e675b6e.js"></script>-->
+</head>
+<body style="background:cornflowerblue;">
+    <div class="logo_login">
+        <a href="intro"><h1 style="color:black">AutoGarage</h1></a>
+    </div>
+    <div class="form">
+        <form th:action="@{/signUp}" th:object="${user}" method="post">
+        <div>
+            <label>First name</label><br>
+            <div class="userField">
+                <img th:src="@{/images/user_color.png}" alt="">&nbsp&nbsp
+                <input style="width:100%;" type="text" th:field="${user.firstName}" name="firstName" placeholder="Enter your first name" required size="50"/>
+            </div>
+        </div>
+        <div>
+            <label>Last name</label><br>
+            <div class="userField">
+                <img th:src="@{/images/user_color.png}" alt="">&nbsp&nbsp
+                <input style="width:100%;" type="text" th:field="${user.lastName}" name="lastName" placeholder="Enter your last name" required  size="50"/>
+            </div>
+        </div>
+        <div>
+            <label>Email</label><br>
+            <div class="userField">
+                <img th:src="@{/images/email.png}">&nbsp&nbsp
+                <input style="width:100%;" type="email" th:field="${user.email}" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" placeholder="Enter your email" required  size="20"/>
+            </div>
+            
+        </div>
+        <div>
+            <label>Phone</label><br>
+            <div class="userField">
+                <img th:src="@{/images/telephone.png}" alt="">&nbsp&nbsp
+                <input style="width:100%;" type="tel" th:field="${user.phone}" name="phone" placeholder="Enter your phone" required maxlength="10" size="10"/>
+            </div>
+        </div>
+        <div>
+            <label>Password</label><br>
+            <div class="userField">
+                <img th:src="@{/images/password.png}">&nbsp&nbsp
+                <input style="width: 100%;" type="password" th:field="${user.password}" name="password" placeholder="Enter your password" required size="50"/>
+            </div>
+        </div>
+        <div class="btn_submit">
+            <button type="submit">Sign up</button>
+        </div>
+        </form>
+        <hr>
+        <div class="btn_signUp">
+            <label style="padding-top: 20px;">Already have a account?</label>&nbsp&nbsp
+            <a href="login"><button>Log in</button></a>
+        </div>
+
+    </div>
+
+</body>
+</html>

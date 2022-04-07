@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" th:href="@{/css/style_navbar.css}">
+    <link rel="stylesheet" th:href="@{/css/style_editcar.css}">
+    <link rel="stylesheet" th:href="@{/css/logo_profile.css}">
+    <title>AutoGarage | Edit one car</title>
+</head>
+<body>
+<header>
+    <div class="container">
+        <input type="checkbox" name="" id="check">
+        
+        <div class="logo-container">
+            <a href="dashboard"><h3 class="logo">Auto<span>Garage</span></h3></a>
+        </div>
+
+        <div class="nav-btn">
+            <div class="nav-links">
+                <ul>
+                    <li class="nav-link" style="--i: .85s">
+                      <a href="#">Why AutoGarage?<img style="width: 20px; height: 20px;" th:src="@{/images/point-down.png}"></a>
+                        <div class="dropdown">
+                            <ul>
+                                <li class="dropdown-link">
+                                    <a href="car">Car services</a>
+                                </li>
+                                <li class="dropdown-link">
+                                    <a href="car">Prices</a>
+                                </li>
+                                <li class="dropdown-link">
+                                    <a href="car">Real photes</a>
+                                </li>
+                                <div class="arrow"></div>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="nav-link" style="--i: 1.1s">
+                        <a href="#">Tools<img style="width: 20px; height: 20px;" th:src="@{/images/point-down.png}"></a>
+                        <div class="dropdown">
+                            <ul>
+                                <li class="dropdown-link">
+                                    <a href="addcar">Add a car</a>
+                                </li>
+                                <li class="dropdown-link">
+                                    <a href="addAutoService">Add a auto service</a>
+                                </li>
+                                <li class="dropdown-link">
+                                    <a href="addAppointment">Make an appointment</a>
+                                </li>
+                                <div class="arrow"></div>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="nav-link" style="--i: 1.35s">
+                        <a href="#">About</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="log-sign" style="--i: 1.8s">
+                <a href="#"><img style="width: 25px; height: 25px;" th:src="@{/images/user_black.png}"></a>
+                <div class="dropdown-profile">
+                    <ul>
+                        <li style="border-bottom:2px solid #efefef">
+                            <a href="dashboard">
+                                <div>
+                                    <img th:src="@{/images/dashboard.png}"/>
+                                </div>
+                                <div>
+                                    <p>Dashboard</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li><a href="editProfile">
+                                <div>
+                                    <img th:src="@{/images/edit_profile_blue.png}"/>
+                                </div>
+                                <div>
+                                    <p>Edit</p>
+                                </div>
+                            </a>
+                         </li>
+                        <li sec:authorize="isAuthenticated()"th:action="@{/logout}" method="post"><a href="intro">
+                                <div>
+                                    <img th:src="@{/images/logout.png}"/>
+                                </div>
+                                <div>
+                                    <p>Log out</p>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="hamburger-menu-container">
+            <div class="hamburger-menu">
+                <div></div>
+            </div>
+        </div>
+    </div>
+</header>
+<section>
+    <form class="form_car" th:action="@{/car/} + ${carId.id}" th:object="${carId}" method="post">
+        <input type="hidden" th:field="*{id}" />
+        <div class="form-table">
+        <table>
+            <tr>
+                <th>
+                    <label>Number Plate:</label>
+                </th>
+
+                <td>
+                    <input type="text" th:field="*{numberPlate}" required/>
+                    <span th:if="${#fields.hasErrors('numberPlate')}" class="error" th:errors="*{numberPlate}">MISSING NUMBER PLATE</span>
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <th>
+                    <label>Car brand:</label>
+                </th>
+
+                <td>
+                    <input type="text" th:field="*{carBrand}" required/>
+                    <span th:if="${#fields.hasErrors('carBrand')}" class="error" th:errors="*{carBrand}">MISSING CAR BRAND</span>
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <th>
+                    <label>Model:</label>
+                </th>
+
+                <td>
+                    <input type="text" th:field="*{model}" required/>
+                    <span th:if="${#fields.hasErrors('model')}" class="error" th:errors="*{model}">MISSING MODEL</span>
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <th>
+                    <label>Power:</label>
+                </th>
+
+                <td>
+                    <input type="text" th:field="*{power}" required/>
+                    <span th:if="${#fields.hasErrors('power')}" class="error" th:errors="*{power}">MISSING POWER</span>
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <th>
+                    <label>Type:</label>
+                </th>
+
+                <td>
+                    <input type="text" th:field="*{type}" required/>
+                    <span th:if="${#fields.hasErrors('type')}" class="error" th:errors="*{type}">MISSING TYPE</span>
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <th>
+                    <label>Year:</label>
+                </th>
+
+                <td>
+                    <input type="text" th:field="*{year}" required/>
+                    <span th:if="${#fields.hasErrors('year')}" class="error" th:errors="*{year}">MISSING YEAR</span>
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <th>
+                    <label>Consumption (100 Km):</label>
+                </th>
+
+                <td>
+                    <input type="text" th:field="*{consumption}" required/>
+                    <span th:if="${#fields.hasErrors('consumption')}" class="error" th:errors="*{consumption}">MISSING CONSUMPTION</span>
+                </td>
+                <td></td>
+            </tr>
+        </table>
+        </div>
+        <div class="form-btn">
+            <a href="car"><button type="submit">EDIT</button></a>
+            <a href="car"><button>CANCEL</button></a>
+        </div>
+    </form>
+</section>
+<footer>
+<div class="overflow">    
+<div>
+    <h4 style="padding-top: 120px;" class="logo">Auto<span>Garage</span></h4>
+</div>
+<div>
+    <h4 style="padding-top: 200px;">Web development with Spring Boot, Endava</h4>
+</div>
+</div>
+</footer>
+</body>
+<script th:src="@{/js/logo-profile.js}"></script>
+</html>

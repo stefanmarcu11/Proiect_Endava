@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" th:href="@{/css/style_navbar.css}">
+    <link rel="stylesheet" th:href="@{/css/autoservices.css}">
+    <link rel="stylesheet" th:href="@{/css/logo_profile.css}">
+
+    <title>AutoGarage | Auto services</title>
+</head>
+<body>
+<header>
+    <div class="container">
+        <input type="checkbox" name="" id="check">
+        
+        <div class="logo-container">
+            <a href="/"><h3 class="logo">Auto<span>Garage</span></h3></a>
+        </div>
+
+        <div class="nav-btn">
+            <div class="nav-links">
+                <ul>
+                    <li class="nav-link" style="--i: .85s">
+                        <a href="#">Why AutoGarage?<img style="width: 20px; height: 20px;" th:src="@{images/point-down.png}"></a>
+                        <div class="dropdown">
+                            <ul>
+                                <li class="dropdown-link">
+                                    <a href="car">Car services</a>
+                                </li>
+                                <li class="dropdown-link">
+                                    <a href="car">Prices</a>
+                                </li>
+                                <li class="dropdown-link">
+                                    <a href="car">Real photes</a>
+                                </li>
+                                <div class="arrow"></div>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="nav-link" style="--i: 1.1s">
+                        <a href="#">Tools<img style="width: 20px; height: 20px;" th:src="@{/images/point-down.png}"></a>
+                        <div class="dropdown">
+                            <ul>
+                                <li class="dropdown-link">
+                                    <a href="addcar">Add a car</a>
+                                </li>
+                                <li class="dropdown-link">
+                                    <a href="addAutoService">Add a auto service</a>
+                                </li>
+                                <li class="dropdown-link">
+                                    <a href="addAppointment">Make an appointment</a>
+                                </li>
+                                <div class="arrow"></div>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="nav-link" style="--i: 1.35s">
+                        <a href="#">About</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="log-sign" style="--i: 1.8s">
+                <a href="#"><img style="width: 25px; height: 25px;" th:src="@{/images/user_black.png}"></a>
+                <div class="dropdown-profile">
+                    <ul>
+                        <li style="border-bottom:2px solid #efefef">
+                            <a href="/">
+                                <div>
+                                    <img th:src="@{/images/dashboard.png}"/>
+                                </div>
+                                <div>
+                                    <p>Dashboard</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li><a href="editProfile">
+                                <div>
+                                    <img th:src="@{/images/edit_profile_blue.png}"/>
+                                </div>
+                                <div>
+                                    <p>Edit</p>
+                                </div>
+                            </a>
+                         </li>
+                        <li sec:authorize="isAuthenticated()"th:action="@{/logout} method="post">
+                                <div>
+                                    <img th:src="@{/images/logout.png}"/>
+                                </div>
+                                <div>
+                                    <p>Log out</p>
+                                </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="hamburger-menu-container">
+            <div class="hamburger-menu">
+                <div></div>
+            </div>
+        </div>
+    </div>
+</header>
+<main>
+    <section>
+        <div>
+           
+                <div class="information">
+                    <h4>Auto services</h4><sup><img th:src="@{/images/information _orange.png}"/></sup>
+                </div>
+                
+                
+                <div class="service-content">
+                    <lable style="font-size:25px;">List of auto services</lable>
+                    <div class="search_wrap search_wrap_6">
+                        <div class="search_box">
+                            <input type="text" class="input" placeholder="search...">
+                            <div class="btn">
+                                <p>Search</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="listofautoservice">
+                        <table>
+                            <thread>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Address</th>
+                                    <th>Phone</th>
+                                    <th>Details</th>
+                                    <th>Actions</th>
+                                    
+                                </tr>
+
+                            </thread>
+                            <tbody>
+                                <tr th:each="item:${autoServiceList}">
+                                    <td th:text="${item.name}"></td>
+                                    <td th:text="${item.address}"></td>
+                                    <td th:text="${item.phone}"></td>
+                                    <td>
+                                        <a href="Details.html"><button>DETAILS</button></a>
+                                    </td>
+                                    <td>
+                                        <div class="actions">
+                                            <div>
+                                                <a th:href="@{/autoService/}+${item.Id}"><button class="btn-edit">EDIT</button></a>
+                                            </div>
+                                            <div>
+                                                <form th:action="@{/deleteCar}" th:object="${car}" method="post">
+                                                <!--<input class="d-none" name="carId" th:value="${car.id}">-->
+                                                    <button class="btn-delete">DELETE</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+           
+        </div>
+
+    </section>
+</main>
+<footer>
+    <div class="overflow">    
+        <div>
+            <h4 style="padding-top: 120px;" class="logo">Auto<span>Garage</span></h4>
+        </div>
+        <div>
+            <h4 style="padding-top: 200px;">Web development with Spring Boot, Endava</h4>
+        </div>
+    </div>
+</footer>
+</body>
+<script th:src="@{/js/logo-profile.js}"></script>
+</html>

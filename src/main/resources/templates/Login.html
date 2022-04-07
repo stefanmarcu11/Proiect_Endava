@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>AutoGarage | Log in</title>
+	<link rel="stylesheet"  th:href="@{/css/style_v2.css}">
+	<!--<script src="https://kit.fontawesome.com/b99e675b6e.js"></script>-->
+</head>
+<body style="background:cornflowerblue;">
+    <div class="logo_login">
+        <a href="intro"><h1 style="color:black">AutoGarage</h1></a>
+    </div>
+    <div th:if="${param.error}">
+        Invalid username and password.
+    </div>
+    <div th:if="${param.logout}">
+        You have been logged out.
+    </div>
+    <div class="form">
+        <form th:action="@{/login}" method="post">
+        <div>
+            <label>Username or email</label><br>
+            <div class="userField">
+                <img th:src="@{/images/user_color.png}" alt="">&nbsp&nbsp
+                <input type="text"style="width:100%;"  name="username" placeholder="Enter your username or email" required/>
+            </div>
+
+        </div>
+        <div>
+            <label>Password</label><br>
+            <div class="userField">
+                <img th:src="@{/images/password.png}" alt="">&nbsp&nbsp
+                <input type="password" name="password"  style="width:100%;" placeholder="Enter your password" required/>
+            </div>
+
+        </div>
+        <div class="btn_submit">
+            <a href="/"><button type="submit">Log in</button></a>
+        </div>
+        </form>
+        <hr>
+        <div class="btn_signUp">
+            <label style="padding-top: 20px;">Need an account?</label>&nbsp&nbsp
+            <a href="signUp"><button>Sign up</button></a>
+        </div>
+    </div>
+</body>
+</html>

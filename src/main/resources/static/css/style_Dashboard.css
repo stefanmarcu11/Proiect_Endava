@@ -1,0 +1,60 @@
+section{
+    background-color:rgba(0, 0, 0, 0.2);
+}
+footer{
+    background:url("/images/cars.png") 0 0 no-repeat;
+    background-position: center;
+    min-height: 400px;
+    margin: auto;
+    height: 20rem;
+    width: 100%;
+    overflow: hidden;
+}
+.overflow{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+    z-index: 2;
+}
+.log-sign{
+    display: flex;
+    flex-direction: column;
+}
+.dropdown-profile{
+    background-color:rgb(163, 50, 5);
+    padding: 10px 0px;
+    margin-top: 48px;
+    position: absolute;
+    top:0px;
+    left:78%;
+}
+.dropdown-profile a{
+    text-decoration: none;
+    color: black;
+}
+.dropdown-profile li{
+    padding: 10px 20px;
+}
+.log-sign .dropdown-profile{
+    display: none;
+}
+.log-sign.active .dropdown-profile{
+    display: block;
+} 
+.dropdown-profile img{
+    width: 25px;
+    height: 25px;
+}
+.dropdown-profile ul li a{
+    display: flex;
+}
+.dropdown-profile ul li a img{
+    margin-right: 10px;
+}
+.dropdown-profile ul li a p{
+    padding-top: 5px;
+}
